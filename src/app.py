@@ -30,7 +30,10 @@ def main(args: list) -> None:
             pass
 
         if args[0] == "list":
-            pass
+            if len(args) == 1:
+                app_service.get_tasks()
+            else:
+                app_service.get_tasks_with_filter(args[1])
 
         if args[0].startswith("mark"):
             pass

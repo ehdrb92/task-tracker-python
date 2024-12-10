@@ -36,3 +36,22 @@ class AppService:
         self.tasks.append(new_task)
         print(f"Task added successfully (ID: {self.last_id})")
         return
+
+    def get_tasks(self) -> list:
+        status = ["todo", "in-progress", "done"]
+
+        for task in self.tasks:
+            print(
+                f"id: {task["id"]}, decription: '{task["decription"]}', status: {status[task["status"]]}, created_at: {task["created_at"]}, updated_at: {task["updated_at"]}"
+            )
+            pass
+
+    def get_tasks_with_filter(self, filter: str) -> list:
+        status = ["todo", "in-progress", "done"]
+
+        if filter not in ["todo", "in-progress", "done"]:
+            raise ValueError("status must 'todo' or 'in-progress' or 'done'")
+        for task in [task for task in self.tasks if task["status"] == filter]:
+            print(
+                f"id: {task["id"]}, decription: '{task["decription"]}', status: {status[task["status"]]}, created_at: {task["created_at"]}, updated_at: {task["updated_at"]}"
+            )
