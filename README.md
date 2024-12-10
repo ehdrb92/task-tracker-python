@@ -1,6 +1,6 @@
 # Task Tracker (Python)
 
-Task Tracker is a task management application. You can create, view, edit, and delete tasks. You can also check only the tasks with the status you want to check.
+Task Tracker is a task management application. You can create, view, edit, and delete tasks. You can also check only the tasks with the status you want to check. This project is an assignment for the link (https://roadmap.sh/projects/task-tracker).
 
 ## Usage
 
