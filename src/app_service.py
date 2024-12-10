@@ -58,6 +58,7 @@ class AppService:
                 self.tasks[index]["description"] = update_task["description"]
                 self.tasks[index]["updated_at"] = update_task["updated_at"]
                 break
+        print(f"Task updated successfully (ID: {update_task["id"]})")
 
     def update_task_status(self, task: Task):
         update_task = task.to_dict()
@@ -67,9 +68,11 @@ class AppService:
                 self.tasks[index]["status"] = update_task["status"]
                 self.tasks[index]["updated_at"] = update_task["updated_at"]
                 break
+        print(f"Task updated successfully (ID: {update_task["id"]})")
 
     def delete_task(self, id: int) -> None:
         for index, task in enumerate(self.tasks):
             if task["id"] == id:
                 del self.tasks[index]
                 break
+        print(f"Task deleted successfully (ID: {id})")
