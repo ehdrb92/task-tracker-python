@@ -24,19 +24,23 @@ def main(args: list) -> None:
             app_service.create_task(task)
 
         if args[0] == "update":
-            pass
+            task = Task(id=int(args[1]), description=args[2], updated_at=datetime.now())
+            app_service.update_task_description(task)
 
         if args[0] == "delete":
-            pass
+            app_service.delete_task(int(args[1]))
 
         if args[0] == "list":
             if len(args) == 1:
                 app_service.get_tasks()
             else:
-                app_service.get_tasks_with_filter(args[1])
+                task = Task(status=args[1])
+                app_service.get_tasks_with_filter(task.status)
 
         if args[0].startswith("mark"):
-            pass
+            status = args[0][5:]
+            task = Task(id=int(args[1]), status=status, updated_at=datetime.now())
+            app_service.update_task_status(task)
 
         app_service.save_tasks()
     except ValueError as e:
