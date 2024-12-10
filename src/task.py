@@ -11,7 +11,7 @@ class Task:
     decription: str
     created_at: datetime
     updated_at: datetime
-    status: TaskStatus
+    status: TaskStatus = 1
 
     @property
     def status(self):
@@ -27,3 +27,12 @@ class Task:
             self._status = 2
         if value == "done":
             self._status = 3
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "decription": self.decription,
+            "status": self._status,
+            "created_at": self.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            "updated_at": self.updated_at.strftime("%Y-%m-%d %H:%M:%S"),
+        }
